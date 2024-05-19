@@ -3,7 +3,9 @@ using Microsoft.Extensions.Logging;
 using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Repositories;
 using TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastCreate;
+using TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastGetById;
 using TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastList;
+using TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastUpdate;
 using TFG.HomeWorks.Application.Validations;
 
 namespace TFG.HomeWorks.Application.Services.WeatherForecast
@@ -62,6 +64,35 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
                 PageSize = request.PageSize,
                 TotalCount = await _weatherForecastRepository.Count(request)
             };
+        }
+
+        public async Task Update(WeatherForecastUpdateRequest request)
+        {
+            _validator.EnsureIsValid(request);
+
+            var entity = new Domain.Entities.WeatherForecast()
+            {
+                Id = request.Id,
+                Summary = request.Summary,
+                Type = request.Type,
+                TemperatureC = request.TemperatureC,
+                Date = request.Date,
+                Time = request.Time,
+                CreateDate = DateTime.UtcNow
+            };
+
+            _weatherForecastRepository.Update(entity);
+            await _unitOfWork.SaveChangesAsync();
+        }
+        public async Task<WeatherForecastGetByIdResponse> GetById(WeatherForecastGetByIdRequest request)
+        {
+            _validator.EnsureIsValid(request);
+            var entity = await _weatherForecastRepository.GetById(request);
+
+            if (entity is null)
+                throw new KeyNotFoundException(nameof(request.Id));
+
+            return _mapper.Map<WeatherForecastGetByIdResponse>(entity);
         }
     }
 }

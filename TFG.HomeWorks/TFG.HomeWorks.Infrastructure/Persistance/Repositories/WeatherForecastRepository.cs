@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Repositories;
+using TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastGetById;
 using TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastList;
 using TFG.HomeWorks.Domain.Entities;
 
@@ -97,6 +98,20 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
                 query = query.Where(x => x.Type.Equals(request.Type));
 
             return query;
+        }
+
+        public void Update(WeatherForecast entity)
+        {
+            _dbContext.Update(entity);
+        }
+
+        public Task<WeatherForecast?> GetById(WeatherForecastGetByIdRequest request)
+        {
+            var query = _dbContext.Set<WeatherForecast>().AsQueryable();
+
+            return query
+                .Where(x => x.Id == request.Id)
+                .FirstOrDefaultAsync();
         }
     }
 }
