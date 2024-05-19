@@ -10,7 +10,7 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecas
         /// <summary>
         /// Identificador de la entidad
         /// </summary>
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Temperatura en grados C

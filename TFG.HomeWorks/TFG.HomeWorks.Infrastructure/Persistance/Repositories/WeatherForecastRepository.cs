@@ -30,7 +30,7 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
 
             return await query
                 .Skip(request.PageSize * request.Page)
-                .Take(request.Page)
+                .Take(request.PageSize)
                 .ToListAsync();
         }
 
@@ -46,9 +46,14 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
         {
             Expression<Func<WeatherForecast, object>> keySelector = ParseKeySelector(orderBy);
 
-            return sortDirection.Equals(SortDirection.Asc)
-                ? query.OrderBy(keySelector)
-                : query.OrderByDescending(keySelector);
+            return sortDirection switch
+            {
+                SortDirection.Default => query.OrderByDescending(keySelector),
+                SortDirection.Asc => query.OrderBy(keySelector),
+                SortDirection.Desc => query.OrderByDescending(keySelector),
+                _ => throw new NotImplementedException()
+            };
+
 
         }
 
@@ -56,7 +61,7 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
         {
             return orderBy switch
             {
-                WeatherForecastListRequestOrderBy.None => entity => entity.CreateDate,
+                WeatherForecastListRequestOrderBy.Default => entity => entity.CreateDate,
                 WeatherForecastListRequestOrderBy.CreateDate => entity => entity.CreateDate,
                 WeatherForecastListRequestOrderBy.Date => entity => entity.Date,
                 WeatherForecastListRequestOrderBy.Time => entity => entity.Time,

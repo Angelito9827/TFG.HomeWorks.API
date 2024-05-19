@@ -2,7 +2,7 @@
 {
     public enum WeatherForecastListRequestOrderBy
     {
-        None,
+        Default,
         CreateDate,
         Date,
         Time,

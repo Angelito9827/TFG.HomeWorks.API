@@ -11,6 +11,6 @@ namespace TFG.HomeWorks.Application.Base
 
         [Required]
         public int PageSize { get; set; }
-        public SortDirection SortDirection { get; set; } = SortDirection.Desc;
+        public SortDirection SortDirection { get; set; }
     }
 }

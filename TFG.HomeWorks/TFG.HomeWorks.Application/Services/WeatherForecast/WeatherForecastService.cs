@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
 using TFG.HomeWorks.Application.Base;
-using TFG.HomeWorks.Application.Exceptions;
 using TFG.HomeWorks.Application.Repositories;
 using TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastCreate;
 using TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastList;
@@ -35,9 +34,6 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
         {
             _validator.EnsureIsValid(request);
 
-            if (!CheckAnyBusinessRule())
-                throw CustomApplicationException.Create(CustomApplicationExceptionCode.Test_AnyBusinessRuleViolation);
-
             var entity = new Domain.Entities.WeatherForecast()
             {
                 Summary = request.Summary,
@@ -57,9 +53,6 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
         {
             _validator.EnsureIsValid(request);
 
-            if (!CheckAnyBusinessRule())
-                throw CustomApplicationException.Create(CustomApplicationExceptionCode.Test_AnyBusinessRuleViolation);
-
             var entities = await _weatherForecastRepository.List(request);
 
             return new PageListResponse<WeatherForecastListItemResponse>
@@ -70,11 +63,5 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
                 TotalCount = await _weatherForecastRepository.Count(request)
             };
         }
-
-        private static bool CheckAnyBusinessRule()
-        {
-            return DateTime.UtcNow.Minute % 2 == 0;
-        }
-
     }
 }

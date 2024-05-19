@@ -18,13 +18,14 @@ namespace TFG.HomeWorks.WebApi.Controllers
             _weatherForecastService = weatherForecastService;
         }
 
+
         /// <summary>
-        /// Obtiene los últimos <paramref name="amount"/> registros de temperatura
+        /// Obtiene un listado páginado, filtrado y ordenado de prónosticos del tiempo
         /// </summary>
-        /// <param name="amount">Number of elements to obtain. Must be a value greater than 0</param>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet(Name = "GetWeatherForecast")]
-        public async Task<PageListResponse<WeatherForecastListItemResponse>> List(WeatherForecastListRequest request)
+        public async Task<PageListResponse<WeatherForecastListItemResponse>> List([FromQuery] WeatherForecastListRequest request)
         {
             return await _weatherForecastService.List(request);
         }

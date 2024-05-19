@@ -1,5 +1,4 @@
-﻿using FluentValidation;
-using TFG.HomeWorks.Application.Base;
+﻿using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Domain.Entities;
 
 namespace TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastList
@@ -10,9 +9,6 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecas
     /// </summary>
     public class WeatherForecastListRequest : PageListRequest<WeatherForecastListRequestOrderBy>
     {
-        /// <summary>
-        /// Filtros de la request
-        /// </summary>
         public DateTime? CreateDate { get; set; }
         public DateOnly? Date { get; set; }
         public TimeOnly? Time { get; set; }
@@ -20,12 +16,5 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecas
         public int? TemperatureF { get; set; }
         public string? Summary { get; set; }
         public WeatherForecastType? Type { get; set; }
-    }
-    public class WeatherForecastRequestValidator : AbstractValidator<WeatherForecastListRequest>
-    {
-        public WeatherForecastRequestValidator()
-        {
-            RuleFor(x => x.Page).GreaterThanOrEqualTo(1);
-        }
     }
 }
