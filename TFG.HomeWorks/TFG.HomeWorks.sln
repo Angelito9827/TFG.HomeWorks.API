@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFG.HomeWorks.Host", "TFG.HomeWorks.Host\TFG.HomeWorks.Host.csproj", "{9039325F-5659-4F2D-A13C-CC3EFFC7A600}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFG.HomeWorks.WebApi", "TFG.HomeWorks.WebApi\TFG.HomeWorks.WebApi.csproj", "{845A1E1C-3C82-4855-9F4D-3CDB2C50E69D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFG.HomeWorks.Application", "TFG.HomeWorks.Application\TFG.HomeWorks.Application.csproj", "{E91F8605-942B-4253-9035-67C4C18AF164}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFG.HomeWorks.Domain", "TFG.HomeWorks.Domain\TFG.HomeWorks.Domain.csproj", "{7A47F668-E93B-478B-BF5A-53A0CD62E21F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFG.HomeWorks.Infrastructure", "TFG.HomeWorks.Infrastructure\TFG.HomeWorks.Infrastructure.csproj", "{0D20C424-2976-4866-919C-B31061AE455F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6938871-4F86-45C7-82CB-D766E6EBE0D2}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9039325F-5659-4F2D-A13C-CC3EFFC7A600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9039325F-5659-4F2D-A13C-CC3EFFC7A600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9039325F-5659-4F2D-A13C-CC3EFFC7A600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9039325F-5659-4F2D-A13C-CC3EFFC7A600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845A1E1C-3C82-4855-9F4D-3CDB2C50E69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845A1E1C-3C82-4855-9F4D-3CDB2C50E69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845A1E1C-3C82-4855-9F4D-3CDB2C50E69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845A1E1C-3C82-4855-9F4D-3CDB2C50E69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E91F8605-942B-4253-9035-67C4C18AF164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E91F8605-942B-4253-9035-67C4C18AF164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E91F8605-942B-4253-9035-67C4C18AF164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E91F8605-942B-4253-9035-67C4C18AF164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A47F668-E93B-478B-BF5A-53A0CD62E21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A47F668-E93B-478B-BF5A-53A0CD62E21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A47F668-E93B-478B-BF5A-53A0CD62E21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A47F668-E93B-478B-BF5A-53A0CD62E21F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D20C424-2976-4866-919C-B31061AE455F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D20C424-2976-4866-919C-B31061AE455F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D20C424-2976-4866-919C-B31061AE455F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D20C424-2976-4866-919C-B31061AE455F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7587DA9F-7250-4CD1-A183-4A72B62B9A5B}
+	EndGlobalSection
+EndGlobal

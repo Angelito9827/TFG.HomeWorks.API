@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>cb149d10-9e7e-40d8-84d4-7fc739dcf5f2</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TFG.HomeWorks.Application\TFG.HomeWorks.Application.csproj" />
+    <ProjectReference Include="..\TFG.HomeWorks.Infrastructure\TFG.HomeWorks.Infrastructure.csproj" />
+    <ProjectReference Include="..\TFG.HomeWorks.WebApi\TFG.HomeWorks.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>
