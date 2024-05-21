@@ -39,7 +39,7 @@ namespace TFG.HomeWorks.WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
-        public async Task<WeatherForecastGetByIdResponse> GetById(Guid id)
+        public async Task<WeatherForecastGetByIdResponse> GetById([FromRoute] Guid id)
         {
             var request = new WeatherForecastGetByIdRequest(id);
             return await _weatherForecastService.GetById(request);
@@ -50,10 +50,12 @@ namespace TFG.HomeWorks.WebApi.Controllers
         /// </summary>
         /// <param name="request"></param>
         [HttpPost(Name = "CreateWeatherForecast")]
-        public Task Create(WeatherForecastCreateRequest request)
+        public async Task<IActionResult> Create(WeatherForecastCreateRequest request)
         {
-            return _weatherForecastService.Create(request);
+            var response = await _weatherForecastService.Create(request);
+            return CreatedAtAction(nameof(List), new { response });
         }
+
         /// <summary>
         /// Modifica un registro de temperatura
         /// </summary>
@@ -63,5 +65,7 @@ namespace TFG.HomeWorks.WebApi.Controllers
         {
             return _weatherForecastService.Update(request);
         }
+
+
     }
 }

@@ -8,7 +8,7 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
 {
     public interface IWeatherForecastService
     {
-        Task Create(WeatherForecastCreateRequest request);
+        Task<WeatherForecastCreateResponse> Create(WeatherForecastCreateRequest request);
         Task<WeatherForecastGetByIdResponse> GetById(WeatherForecastGetByIdRequest request);
         Task<PageListResponse<WeatherForecastListItemResponse>> List(WeatherForecastListRequest request);
         Task Update(WeatherForecastUpdateRequest request);

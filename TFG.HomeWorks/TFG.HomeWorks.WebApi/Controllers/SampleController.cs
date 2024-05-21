@@ -8,7 +8,7 @@ namespace TFG.HomeWorks.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SampleController : ControllerBase
+    internal class SampleController : ControllerBase
     {
         private readonly ISampleService _templateService;
 

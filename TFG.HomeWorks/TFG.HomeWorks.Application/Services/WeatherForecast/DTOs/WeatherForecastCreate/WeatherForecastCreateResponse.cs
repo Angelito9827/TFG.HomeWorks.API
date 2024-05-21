@@ -4,8 +4,6 @@
     /// Respuesta de la creación de un registro de tiempo
     /// </summary>
     /// <param name="Id"> Identificador del WeatherForecast
-    public record WeatherForecastCreateResponse
-    {
-        public int Id { get; set; }
-    }
+    public record WeatherForecastCreateResponse(Guid Id);
+
 }

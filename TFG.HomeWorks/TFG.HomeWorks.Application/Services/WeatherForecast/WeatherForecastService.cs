@@ -32,7 +32,7 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
             _weatherForecastRepository = weatherForecastRepository;
         }
 
-        public async Task Create(WeatherForecastCreateRequest request)
+        public async Task<WeatherForecastCreateResponse> Create(WeatherForecastCreateRequest request)
         {
             _validator.EnsureIsValid(request);
 
@@ -49,6 +49,7 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
             _weatherForecastRepository.Add(entity);
 
             await _unitOfWork.SaveChangesAsync();
+            return new WeatherForecastCreateResponse(entity.Id);
         }
 
         public async Task<PageListResponse<WeatherForecastListItemResponse>> List(WeatherForecastListRequest request)
@@ -70,16 +71,16 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
         {
             _validator.EnsureIsValid(request);
 
-            var entity = new Domain.Entities.WeatherForecast()
-            {
-                Id = request.Id,
-                Summary = request.Summary,
-                Type = request.Type,
-                TemperatureC = request.TemperatureC,
-                Date = request.Date,
-                Time = request.Time,
-                CreateDate = DateTime.UtcNow
-            };
+            var entity = await _weatherForecastRepository.GetById(new WeatherForecastGetByIdRequest(request.Id));
+
+            if (entity is null)
+                throw new KeyNotFoundException(nameof(Domain.Entities.WeatherForecast));
+
+            entity.Date = request.Date;
+            entity.Time = request.Time;
+            entity.TemperatureC = request.TemperatureC;
+            entity.Summary = request.Summary;
+            entity.Type = request.Type;
 
             _weatherForecastRepository.Update(entity);
             await _unitOfWork.SaveChangesAsync();
@@ -90,7 +91,7 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
             var entity = await _weatherForecastRepository.GetById(request);
 
             if (entity is null)
-                throw new KeyNotFoundException(nameof(request.Id));
+                throw new KeyNotFoundException(nameof(Domain.Entities.WeatherForecast));
 
             return _mapper.Map<WeatherForecastGetByIdResponse>(entity);
         }
