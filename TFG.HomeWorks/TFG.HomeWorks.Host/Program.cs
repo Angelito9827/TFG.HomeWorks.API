@@ -47,7 +47,7 @@ namespace TFG.HomeWorks.WebApi.Host
 #warning Esto es para fines de demostración y poder probar la plantilla
             EnsureDatabaseCreated(app);
             // Para ejecutar las migraciones automáticamente
-            //EnsureDatabaseUpdated(scope.ServiceProvider);
+            EnsureDatabaseUpdated(app);
 
             app.Run();
         }

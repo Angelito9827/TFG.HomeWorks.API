@@ -23,4 +23,8 @@
     <InternalsVisibleTo Include="TFG.HomeWorks.Infrastructure" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\House\DTOs\HouseList\" />
+  </ItemGroup>
+
 </Project>
