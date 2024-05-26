@@ -9,9 +9,9 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
     {
         public override void Configure(EntityTypeBuilder<HouseMember> builder)
         {
-            base.Configure(builder); // Call the base configuration (if any)
+            builder.HasKey(hm => hm.Id);
 
-            builder.HasKey(hm => new { hm.HouseId, hm.UserId });
+            builder.HasIndex(hm => new { hm.HouseId, hm.UserId }).IsUnique();
 
             builder.HasOne(hm => hm.House)
                 .WithMany(h => h.Members)
@@ -19,7 +19,7 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(hm => hm.User)
-                .WithMany()
+                .WithMany(u => u.HouseMembers)
                 .HasForeignKey(hm => hm.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
         }

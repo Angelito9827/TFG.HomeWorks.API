@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace TFG.HomeWorks.Application.Services.House.DTOs
+namespace TFG.HomeWorks.Application.Services.House.DTOs.HouseList
 {
     public class HouseListRequestValidator : AbstractValidator<HouseListRequest>
     {

@@ -31,6 +31,7 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
                 .WithOne(m => m.House)
                 .HasForeignKey(m => m.HouseId)
                 .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 

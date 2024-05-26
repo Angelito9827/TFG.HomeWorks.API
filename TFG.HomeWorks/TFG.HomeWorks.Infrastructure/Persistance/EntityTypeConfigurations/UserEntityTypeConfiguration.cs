@@ -23,8 +23,10 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.Property(u => u.LastName)
-                .IsRequired()
+            builder.Property(u => u.LastName1)
+                .HasMaxLength(100);
+
+            builder.Property(u => u.LastName2)
                 .HasMaxLength(100);
 
             builder.Property(u => u.BirthDate)
@@ -49,6 +51,11 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
                 .HasForeignKey(u => u.RoleId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict); // or Cascade depending on your requirements
+
+            builder.HasMany(u => u.HouseMembers)
+                 .WithOne(hm => hm.User)
+                 .HasForeignKey(hm => hm.UserId)
+                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

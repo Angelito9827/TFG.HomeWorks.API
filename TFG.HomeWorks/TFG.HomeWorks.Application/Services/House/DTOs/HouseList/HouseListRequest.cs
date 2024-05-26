@@ -1,6 +1,6 @@
 ﻿using TFG.HomeWorks.Application.Base;
 
-namespace TFG.HomeWorks.Application.Services.House.DTOs
+namespace TFG.HomeWorks.Application.Services.House.DTOs.HouseList
 {
     public class HouseListRequest : PageListRequest<OrderByHouseListRequest>
     {
