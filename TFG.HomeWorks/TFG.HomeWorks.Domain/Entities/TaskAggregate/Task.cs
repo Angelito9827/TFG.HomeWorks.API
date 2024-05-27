@@ -24,7 +24,9 @@ namespace TFG.HomeWorks.Domain.Entities.TaskAggregate
 
 
         //Constructors
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         private Task() { }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public Task(string name,
                     string description,
                     TaskState state,

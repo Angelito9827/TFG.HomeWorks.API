@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TFG.HomeWorks.Infrastructure.Persistance;
 
@@ -11,9 +12,11 @@ using TFG.HomeWorks.Infrastructure.Persistance;
 namespace TFG.HomeWorks.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240526131323_RenameGenderPropertyUser")]
+    partial class RenameGenderPropertyUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,18 +108,6 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Role");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "User"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Admin"
-                        });
                 });
 
             modelBuilder.Entity("TFG.HomeWorks.Domain.Entities.UserAggregate.User", b =>
@@ -153,13 +144,9 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("PasswordHash")
+                    b.Property<byte[]>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordSalt")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("PhoneNumber")
                         .HasMaxLength(20)

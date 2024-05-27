@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using TFG.HomeWorks.Application.Mapping;
 using TFG.HomeWorks.Application.Options;
+using TFG.HomeWorks.Application.Services.Authentication;
 using TFG.HomeWorks.Application.Services.Sample;
 using TFG.HomeWorks.Application.Services.WeatherForecast;
 using TFG.HomeWorks.Application.Validations;
@@ -20,6 +21,10 @@ namespace TFG.HomeWorks.Application
 
             services.AddScoped<IWeatherForecastService, WeatherForecastService>();
             services.AddScoped<ISampleService, SampleService>();
+
+            //Authentication
+            services.AddScoped<IAuthService, AuthService>();
+
 
             return services;
         }

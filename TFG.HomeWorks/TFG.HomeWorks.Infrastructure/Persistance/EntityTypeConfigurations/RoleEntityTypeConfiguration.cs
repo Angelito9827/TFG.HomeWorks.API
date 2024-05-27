@@ -14,6 +14,11 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
                 .IsRequired()
                 .HasMaxLength(100); // Example: Set the maximum length of the role name
 
+            builder.HasData(
+               Role.Create(Roles.User),
+               Role.Create(Roles.Admin)
+           );
+
             // Optionally, you can configure relationships here if needed.
             // For example, if a role has specific permissions associated with it.
 

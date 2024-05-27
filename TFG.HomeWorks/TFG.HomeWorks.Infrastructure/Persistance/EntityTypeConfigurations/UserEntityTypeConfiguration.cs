@@ -38,7 +38,7 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
             builder.Property(u => u.PasswordHash)
                 .IsRequired();
 
-            builder.Property(u => u.Genre)
+            builder.Property(u => u.Gender)
                 .IsRequired()
                 .HasConversion<string>();
 
