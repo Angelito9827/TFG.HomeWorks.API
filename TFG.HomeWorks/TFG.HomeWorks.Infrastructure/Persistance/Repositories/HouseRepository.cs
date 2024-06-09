@@ -72,15 +72,21 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
         {
             return orderBy switch
             {
+                OrderByHouseListRequest.Id => entity => entity.Id,
                 OrderByHouseListRequest.Name => entity => entity.Name,
                 OrderByHouseListRequest.Description => entity => entity.Description,
                 OrderByHouseListRequest.Address => entity => entity.Address,
+                OrderByHouseListRequest.Default => entity => entity.Id,
+
                 _ => throw new NotImplementedException($"The selected field to order by is not valid")
             };
         }
 
         private IQueryable<House> ApplyFilters(IQueryable<House> query, HouseListRequest request)
         {
+            if (request.Id is not null)
+                query = query.Where(x => x.Id.Equals(request.Id));
+
             if (!request.Name.IsNullOrEmpty())
                 query = query.Where(x => EF.Functions.Like(x.Name, $"%{request.Name}%"));
 

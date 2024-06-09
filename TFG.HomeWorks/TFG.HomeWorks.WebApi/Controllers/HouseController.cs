@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Services.House;
 using TFG.HomeWorks.Application.Services.House.DTOs.CreateHouse;
@@ -30,19 +29,25 @@ namespace TFG.HomeWorks.WebApi.Controllers
             return await _houseService.List(request);
         }
 
+        /// <summary>
+        /// Crea una casa
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="image"></param>
+        /// <returns></returns>
         [HttpPost(Name = "CreateHouse")]
         public async Task<IActionResult> Create([FromForm] HouseCreateRequestAPI request)
         {
             using var memoryStream = new MemoryStream();
-            if (request.ProfileImage != null)
-                await request.ProfileImage.CopyToAsync(memoryStream);
+            if (request.Image != null)
+                await request.Image.CopyToAsync(memoryStream);
 
             var applicationRequest = new HouseCreateRequest(
                 request.Name,
                 request.Description,
                 request.Address,
                 memoryStream.Length > 0 ? memoryStream : null,
-                request.ProfileImage?.FileName
+                request.Image?.FileName
             );
 
             var response = await _houseService.Create(applicationRequest);

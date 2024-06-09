@@ -2,6 +2,8 @@
 {
     public enum OrderByHouseListRequest
     {
+        Default,
+        Id,
         Name,
         Description,
         Address,
