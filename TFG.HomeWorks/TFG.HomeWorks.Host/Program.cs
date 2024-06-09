@@ -21,6 +21,8 @@ namespace TFG.HomeWorks.WebApi.Host
 
             var app = builder.Build();
 
+            app.UseStaticFiles();
+
             app.UseSerilogRequestLogging(options => options.IncludeQueryInRequestPath = true);
 
             // Habilitar para proyectos con Frontend + Backend

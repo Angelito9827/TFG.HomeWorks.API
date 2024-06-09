@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TFG.HomeWorks.Application.Mapping;
 using TFG.HomeWorks.Application.Options;
 using TFG.HomeWorks.Application.Services.Authentication;
+using TFG.HomeWorks.Application.Services.House;
 using TFG.HomeWorks.Application.Services.Sample;
 using TFG.HomeWorks.Application.Services.WeatherForecast;
 using TFG.HomeWorks.Application.Validations;
@@ -18,6 +19,8 @@ namespace TFG.HomeWorks.Application
             services.AddAutoMapper(x => x.AddMaps(typeof(DependencyInjectionExtensions).Assembly));
 
             services.AddOptions<ApplicationSettings>().BindConfiguration(nameof(ApplicationSettings));
+            services.AddOptions<ApiUrls>().BindConfiguration(nameof(ApiUrls));
+
 
             services.AddScoped<IWeatherForecastService, WeatherForecastService>();
             services.AddScoped<ISampleService, SampleService>();
@@ -25,6 +28,8 @@ namespace TFG.HomeWorks.Application
             //Authentication
             services.AddScoped<IAuthService, AuthService>();
 
+            //House
+            services.AddScoped<IHouseService, HouseService>();
 
             return services;
         }

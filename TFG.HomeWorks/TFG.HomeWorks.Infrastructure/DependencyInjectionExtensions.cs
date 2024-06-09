@@ -2,9 +2,11 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TFG.HomeWorks.Application.ExternalServices;
+using TFG.HomeWorks.Application.ExternalServices.Files;
 using TFG.HomeWorks.Application.Repositories;
 using TFG.HomeWorks.Application.Services.Authentication;
 using TFG.HomeWorks.Infrastructure.ExternalServices;
+using TFG.HomeWorks.Infrastructure.Options;
 using TFG.HomeWorks.Infrastructure.Persistance;
 using TFG.HomeWorks.Infrastructure.Persistance.Queries;
 using TFG.HomeWorks.Infrastructure.Persistance.Repositories;
@@ -37,11 +39,20 @@ namespace TFG.HomeWorks.Infrastructure
                 client.BaseAddress = new Uri("https://api.myip.com");
             });
 
+            //IOptions
+            services.AddOptions<FileStorageFilePaths>().BindConfiguration(nameof(FileStorageFilePaths));
+
+            //Common
+            services.AddScoped<IFileStorageService, LocalFileStorageService>();
+
             //Authentication
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddScoped<ISaltGenerator, SaltGenerator>();
             services.AddScoped<IUserRepository, UserRepository>();
+
+            //House
+            services.AddScoped<IHouseRepository, HouseRepository>();
 
             return services;
         }

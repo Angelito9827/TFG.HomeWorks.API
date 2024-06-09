@@ -1,4 +1,5 @@
-﻿using TFG.HomeWorks.Application.Base;
+﻿using AutoMapper;
+using TFG.HomeWorks.Application.Base;
 
 namespace TFG.HomeWorks.Application.Services.House.DTOs.HouseList
 {
@@ -13,6 +14,13 @@ namespace TFG.HomeWorks.Application.Services.House.DTOs.HouseList
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Address { get; set; }
+        public string? ProfileImage { get; set; }
     }
-
+    public class HouseListItemResponseProfile : Profile
+    {
+        public HouseListItemResponseProfile()
+        {
+            CreateMap<Domain.Entities.HouseAggregate.House, HouseListItemResponse>();
+        }
+    }
 }
