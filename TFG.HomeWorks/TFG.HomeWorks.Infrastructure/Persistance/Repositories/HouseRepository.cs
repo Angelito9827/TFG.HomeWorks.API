@@ -25,23 +25,15 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
 
         public async Task<IEnumerable<House>> List(HouseListRequest request)
         {
-            try
-            {
-                var query = _dbContext.Set<House>().AsQueryable();
+            var query = _dbContext.Set<House>().AsQueryable();
 
-                query = ApplyFilters(query, request);
-                query = ApplySort(query, request.OrderBy, request.SortDirection);
+            query = ApplyFilters(query, request);
+            query = ApplySort(query, request.OrderBy, request.SortDirection);
 
-                return await query
-                    .Skip(request.PageSize * request.Page)
-                    .Take(request.PageSize)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            return Enumerable.Empty<House>();
+            return await query
+                .Skip(request.PageSize * request.Page)
+                .Take(request.PageSize)
+                .ToListAsync();
 
         }
 

@@ -11,7 +11,7 @@ namespace TFG.HomeWorks.Application.Services.House
     public interface IHouseService
     {
         Task<HouseCreateResponse> Create(HouseCreateRequest request);
-        Task Delete(HouseDeleteByIdRequest request);
+        System.Threading.Tasks.Task Delete(HouseDeleteByIdRequest request);
         Task<HouseGetByIdResponse> GetById(HouseGetByIdRequest request);
         Task<PageListResponse<HouseListItemResponse>> List(HouseListRequest request);
         Task<HouseUpdateResponse> Update(HouseUpdateRequest request);

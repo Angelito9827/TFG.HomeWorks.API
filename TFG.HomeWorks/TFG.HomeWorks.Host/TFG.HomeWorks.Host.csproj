@@ -21,4 +21,8 @@
     <ProjectReference Include="..\TFG.HomeWorks.WebApi\TFG.HomeWorks.WebApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\icons\categories\" />
+  </ItemGroup>
+
 </Project>

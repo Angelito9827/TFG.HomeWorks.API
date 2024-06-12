@@ -95,6 +95,12 @@ namespace TFG.HomeWorks.WebApi.Controllers
             return CreatedAtAction(nameof(Create), new { response });
         }
 
+
+        /// <summary>
+        /// Borrar una casa por el ID
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete([FromRoute] HouseDeleteByIdRequest request)
         {

@@ -54,6 +54,9 @@ namespace TFG.HomeWorks.Infrastructure
             //House
             services.AddScoped<IHouseRepository, HouseRepository>();
 
+            //Tasks
+            services.AddScoped<ITaskRepository, TaskRepository>();
+
             return services;
         }
     }

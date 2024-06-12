@@ -67,7 +67,6 @@ namespace TFG.HomeWorks.Application.Services.House
             };
         }
 
-
         public async Task<HouseGetByIdResponse> GetById(HouseGetByIdRequest request)
         {
             _validator.EnsureIsValid(request);
@@ -78,7 +77,6 @@ namespace TFG.HomeWorks.Application.Services.House
 
             return _mapper.Map<HouseGetByIdResponse>(entity);
         }
-
 
         public async Task<HouseCreateResponse> Create(HouseCreateRequest request)
         {
@@ -150,7 +148,7 @@ namespace TFG.HomeWorks.Application.Services.House
         }
         private string GenerateImageUrl(string imagePath) => $"{_apisUrlsSettings.BaseUrl}/{imagePath.Replace("\\", "/")}";
 
-        public async Task Delete(HouseDeleteByIdRequest request)
+        public async System.Threading.Tasks.Task Delete(HouseDeleteByIdRequest request)
         {
             _validator.EnsureIsValid(request);
 

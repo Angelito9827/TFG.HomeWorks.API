@@ -5,6 +5,7 @@ using TFG.HomeWorks.Application.Options;
 using TFG.HomeWorks.Application.Services.Authentication;
 using TFG.HomeWorks.Application.Services.House;
 using TFG.HomeWorks.Application.Services.Sample;
+using TFG.HomeWorks.Application.Services.Task;
 using TFG.HomeWorks.Application.Services.WeatherForecast;
 using TFG.HomeWorks.Application.Validations;
 
@@ -31,6 +32,8 @@ namespace TFG.HomeWorks.Application
             //House
             services.AddScoped<IHouseService, HouseService>();
 
+            //Tasks
+            services.AddScoped<ITaskService, TaskService>();
             return services;
         }
 

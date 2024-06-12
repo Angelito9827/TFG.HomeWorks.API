@@ -34,7 +34,7 @@ namespace TFG.HomeWorks.Application.Services.Sample
 
         public Task<ApplicationSettingsResponseDto> GetApplicationSettingsValue()
         {
-            return Task.FromResult(new ApplicationSettingsResponseDto() { ExampleConfigValue = _applicationSettings.ExampleConfigValue });
+            return System.Threading.Tasks.Task.FromResult(new ApplicationSettingsResponseDto() { ExampleConfigValue = _applicationSettings.ExampleConfigValue });
         }
     }
 }

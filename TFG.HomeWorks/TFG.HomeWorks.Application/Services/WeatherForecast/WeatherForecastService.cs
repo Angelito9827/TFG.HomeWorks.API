@@ -67,7 +67,7 @@ namespace TFG.HomeWorks.Application.Services.WeatherForecast
             };
         }
 
-        public async Task Update(WeatherForecastUpdateRequest request)
+        public async System.Threading.Tasks.Task Update(WeatherForecastUpdateRequest request)
         {
             _validator.EnsureIsValid(request);
 

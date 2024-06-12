@@ -29,26 +29,21 @@ namespace TFG.HomeWorks.Domain.Entities.TaskAggregate
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public Task(string name,
                     string description,
-                    TaskState state,
                     DateTime deadlineDate,
                     string assignedTo,
                     string assignedBy,
                     int categoryId,
-                    Category category,
-                    int houseId,
-                    House house)
+                    int houseId)
         {
             Name = name;
             Description = description;
-            State = state;
+            State = TaskState.New;
             CreationDate = DateTime.Now;
             DeadlineDate = deadlineDate;
             AssignedTo = assignedTo;
             AssignedBy = assignedBy;
             CategoryId = categoryId;
-            Category = category;
             HouseId = houseId;
-            House = house;
         }
     }
 }
