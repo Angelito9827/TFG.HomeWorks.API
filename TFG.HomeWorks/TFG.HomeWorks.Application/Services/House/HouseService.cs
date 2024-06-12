@@ -8,6 +8,7 @@ using TFG.HomeWorks.Application.ExternalServices.Files.SaveImage;
 using TFG.HomeWorks.Application.Options;
 using TFG.HomeWorks.Application.Repositories;
 using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.CreateHouse;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.DeleteHouse;
 using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.GetHouseById;
 using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.HouseList;
 using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.UpdateHouse;
@@ -142,9 +143,25 @@ namespace TFG.HomeWorks.Application.Services.House
             _houseRepository.Update(entity);
             await _unitOfWork.SaveChangesAsync();
 
-            return new HouseUpdateResponse(entity.Id, entity.Name, entity.Description, entity.Address, GenerateImageUrl(entity.ProfileImage));
+            var response = _mapper.Map<HouseUpdateResponse>(entity);
+            response.ProfileImage = GenerateImageUrl(entity.ProfileImage);
+
+            return response;
         }
         private string GenerateImageUrl(string imagePath) => $"{_apisUrlsSettings.BaseUrl}/{imagePath.Replace("\\", "/")}";
 
+        public async Task Delete(HouseDeleteByIdRequest request)
+        {
+            _validator.EnsureIsValid(request);
+
+            var entity = await _houseRepository.GetById(new HouseGetByIdRequest(request.Id));
+
+            if (entity is null)
+                throw new KeyNotFoundException(nameof(Domain.Entities.HouseAggregate.House));
+
+            _houseRepository.Delete(entity);
+            await _unitOfWork.SaveChangesAsync();
+
+        }
     }
 }

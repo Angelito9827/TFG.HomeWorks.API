@@ -111,6 +111,12 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
                 .FirstOrDefaultAsync(x => x.Id == request.Id);
         }
 
+        public void Delete(House entity)
+        {
+            _dbContext.Set<House>().Remove(entity);
+
+        }
+
 
     }
 }

@@ -2,6 +2,7 @@
 using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Services.House;
 using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.CreateHouse;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.DeleteHouse;
 using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.GetHouseById;
 using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.HouseList;
 using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.UpdateHouse;
@@ -80,17 +81,26 @@ namespace TFG.HomeWorks.WebApi.Controllers
             if (request.Image != null)
                 await request.Image.CopyToAsync(memoryStream);
 
-            var applicationRequest = new HouseUpdateRequest(
-                request.Id,
-                request.Name,
-                request.Description,
-                request.Address,
-                memoryStream.Length > 0 ? memoryStream : null,
-                request.Image?.FileName
-            );
+            var applicationRequest = new HouseUpdateRequest()
+            {
+                Id = request.Id,
+                Name = request.Name,
+                Description = request.Description,
+                Address = request.Address,
+                ProfileImage = memoryStream.Length > 0 ? memoryStream : null,
+                FileName = request.Image?.FileName
+            };
 
             var response = await _houseService.Update(applicationRequest);
             return CreatedAtAction(nameof(Create), new { response });
         }
+
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] HouseDeleteByIdRequest request)
+        {
+            await _houseService.Delete(request);
+            return NoContent();
+        }
+
     }
 }

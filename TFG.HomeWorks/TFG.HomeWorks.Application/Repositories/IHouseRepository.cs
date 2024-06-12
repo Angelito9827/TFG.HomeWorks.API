@@ -8,9 +8,10 @@ namespace TFG.HomeWorks.Application.Repositories
     public interface IHouseRepository
     {
         void Add(House entity);
-        Task<int> Count(HouseListRequest request);
-        Task<House?> GetById(HouseGetByIdRequest request);
         Task<IEnumerable<House>> List(HouseListRequest request);
+        void Delete(House entity);
         void Update(House entity);
+        Task<House?> GetById(HouseGetByIdRequest request);
+        Task<int> Count(HouseListRequest request);
     }
 }
