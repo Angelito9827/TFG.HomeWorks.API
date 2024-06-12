@@ -1,6 +1,6 @@
 ﻿
-using TFG.HomeWorks.Application.Services.House.DTOs.GetHouseById;
-using TFG.HomeWorks.Application.Services.House.DTOs.HouseList;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.GetHouseById;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.HouseList;
 using TFG.HomeWorks.Domain.Entities.HouseAggregate;
 
 namespace TFG.HomeWorks.Application.Repositories

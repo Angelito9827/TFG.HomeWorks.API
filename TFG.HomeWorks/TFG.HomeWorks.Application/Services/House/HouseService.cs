@@ -7,9 +7,10 @@ using TFG.HomeWorks.Application.ExternalServices.Files;
 using TFG.HomeWorks.Application.ExternalServices.Files.SaveImage;
 using TFG.HomeWorks.Application.Options;
 using TFG.HomeWorks.Application.Repositories;
-using TFG.HomeWorks.Application.Services.House.DTOs.CreateHouse;
-using TFG.HomeWorks.Application.Services.House.DTOs.GetHouseById;
-using TFG.HomeWorks.Application.Services.House.DTOs.HouseList;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.CreateHouse;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.GetHouseById;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.HouseList;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.UpdateHouse;
 using TFG.HomeWorks.Application.Validations;
 
 namespace TFG.HomeWorks.Application.Services.House
@@ -52,7 +53,7 @@ namespace TFG.HomeWorks.Application.Services.House
             var responses = entities.Select(entity =>
             {
                 var response = _mapper.Map<HouseListItemResponse>(entity);
-                response.ProfileImage = $"{_apisUrlsSettings.BaseUrl}/{entity.ProfileImage.Replace("\\", "/")}";
+                response.ProfileImage = GenerateImageUrl(entity.ProfileImage);
                 return response;
             }).ToList();
 
@@ -64,6 +65,8 @@ namespace TFG.HomeWorks.Application.Services.House
                 TotalCount = await _houseRepository.Count(request)
             };
         }
+
+
         public async Task<HouseGetByIdResponse> GetById(HouseGetByIdRequest request)
         {
             _validator.EnsureIsValid(request);
@@ -102,25 +105,46 @@ namespace TFG.HomeWorks.Application.Services.House
         }
 
 
-        //public async Task Update(HouseUpdateRequest request)
-        //{
-        //    _validator.EnsureIsValid(request);
+        public async Task<HouseUpdateResponse> Update(HouseUpdateRequest request)
+        {
+            _validator.EnsureIsValid(request);
 
+            var entity = await _houseRepository.GetById(new HouseGetByIdRequest(request.Id));
 
-        //    var entity = await _houseRepository.GetById(new HouseGetByIdRequest(request.Id));
+            if (entity is null)
+                throw new KeyNotFoundException(nameof(Domain.Entities.HouseAggregate.House));
 
-        //    if (entity is null)
-        //        throw new KeyNotFoundException(nameof(Domain.Entities.HouseAggregate.House));
+            // Update entity properties
+            entity.Name = request.Name;
+            entity.Description = request.Description;
+            entity.Address = request.Address;
 
-        //    entity.Name = request.Name;
-        //    entity.Description = request.Description;
-        //    entity.Address = request.Address;
-        //    entity.ProfileImage =
+            // Handle image update
+            if (request.ProfileImage != null && request.ProfileImage.Length > 0)
+            {
+                var saveImageRequest = new SaveImageRequest
+                {
+                    FileName = request.FileName,
+                    File = request.ProfileImage
+                };
 
+                string profileImagePath = await _fileStorageService.SaveImageAsync(saveImageRequest);
 
-        //    _houseRepository.Update(entity);
-        //    await _unitOfWork.SaveChangesAsync();
-        //}
+                // Delete the old image file if necessary
+                if (!string.IsNullOrEmpty(entity.ProfileImage))
+                {
+                    _fileStorageService.DeleteImage(entity.ProfileImage);
+                }
+
+                entity.ProfileImage = profileImagePath;
+            }
+
+            _houseRepository.Update(entity);
+            await _unitOfWork.SaveChangesAsync();
+
+            return new HouseUpdateResponse(entity.Id, entity.Name, entity.Description, entity.Address, GenerateImageUrl(entity.ProfileImage));
+        }
+        private string GenerateImageUrl(string imagePath) => $"{_apisUrlsSettings.BaseUrl}/{imagePath.Replace("\\", "/")}";
 
     }
 }

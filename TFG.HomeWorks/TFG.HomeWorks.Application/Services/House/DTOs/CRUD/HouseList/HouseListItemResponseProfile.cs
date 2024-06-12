@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace TFG.HomeWorks.Application.Services.House.DTOs.HouseList
+namespace TFG.HomeWorks.Application.Services.House.DTOs.CRUD.HouseList
 {
     public class HouseListItemResponseProfile : Profile
     {

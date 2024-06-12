@@ -41,5 +41,18 @@ namespace TFG.HomeWorks.Infrastructure.ExternalServices
             // Return relative path for later URL construction
             return Path.Combine(_imagesFilePathSettings.UploadsPath, _imagesFilePathSettings.ImagesPath, uniqueFileName).Replace("\\", "/");
         }
+        public void DeleteImage(string filePath)
+        {
+
+            if (filePath == null || filePath.Equals(_imagesFilePathSettings.DefaultImagePath))
+                return;
+
+            var fullPath = Path.Combine(_imagesFilePathSettings.RootPath, filePath);
+
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
+        }
     }
 }

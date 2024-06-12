@@ -1,6 +1,11 @@
 ﻿using AutoMapper;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.GetHouseById;
+using TFG.HomeWorks.Application.Services.House.DTOs.HouseMembers;
+using TFG.HomeWorks.Application.Services.User.DTOs;
 using TFG.HomeWorks.Application.Services.WeatherForecast.DTOs.WeatherForecastList;
 using TFG.HomeWorks.Domain.Entities;
+using TFG.HomeWorks.Domain.Entities.HouseAggregate;
+using TFG.HomeWorks.Domain.Entities.UserAggregate;
 
 namespace TFG.HomeWorks.Application.Mapping
 {
@@ -21,6 +26,11 @@ namespace TFG.HomeWorks.Application.Mapping
                 .ForMember(x => x.TemperatureC, opt => opt.MapFrom(src => src.TemperatureC))
                 .ForMember(x => x.TemperatureF, opt => opt.MapFrom(src => src.TemperatureF))
                 .ForMember(x => x.Summary, opt => opt.MapFrom(src => src.Summary));
+
+            CreateMap<User, UserDto>();
+            CreateMap<HouseMember, HouseMemberDto>();
+            CreateMap<House, HouseGetByIdResponse>()
+                .ForMember(dest => dest.Members, opt => opt.MapFrom(src => src.Members));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace TFG.HomeWorks.Application.Services.House.DTOs.CreateHouse
+namespace TFG.HomeWorks.Application.Services.House.DTOs.CRUD.CreateHouse
 {
     public class HouseCreateResponseProfile : Profile
     {

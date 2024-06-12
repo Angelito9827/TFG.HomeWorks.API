@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace TFG.HomeWorks.Application.Services.House.DTOs.GetHouseById
+namespace TFG.HomeWorks.Application.Services.House.DTOs.CRUD.GetHouseById
 {
     public class HouseGetByIdRequestValidator : AbstractValidator<HouseGetByIdRequest>
     {

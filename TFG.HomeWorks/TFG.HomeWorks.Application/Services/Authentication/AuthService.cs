@@ -4,7 +4,6 @@ using TFG.HomeWorks.Application.ExternalServices;
 using TFG.HomeWorks.Application.Repositories;
 using TFG.HomeWorks.Application.Services.Authentication.DTOs.Register;
 using TFG.HomeWorks.Application.Validations;
-using TFG.HomeWorks.Domain.Entities.UserAggregate;
 
 namespace TFG.HomeWorks.Application.Services.Authentication
 {
@@ -39,7 +38,7 @@ namespace TFG.HomeWorks.Application.Services.Authentication
             string salt = _saltGenerator.Generate();
             string hashedPassword = _passwordHasher.Generate(request.Password, salt);
 
-            var entity = User.Create(
+            var entity = Domain.Entities.UserAggregate.User.Create(
                 request.Email,
                 request.Username,
                 request.FirstName,

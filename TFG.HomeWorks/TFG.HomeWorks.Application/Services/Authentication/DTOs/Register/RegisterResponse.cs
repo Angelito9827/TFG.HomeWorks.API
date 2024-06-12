@@ -9,7 +9,7 @@ namespace TFG.HomeWorks.Application.Services.Authentication.DTOs.Register
     {
         public RegisterResponseProfile()
         {
-            CreateMap<User, RegisterResponse>();
+            CreateMap<Domain.Entities.HouseAggregate.House, RegisterResponse>();
         }
     }
 }

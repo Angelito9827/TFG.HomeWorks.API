@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Services.House;
-using TFG.HomeWorks.Application.Services.House.DTOs.CreateHouse;
-using TFG.HomeWorks.Application.Services.House.DTOs.HouseList;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.CreateHouse;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.GetHouseById;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.HouseList;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.UpdateHouse;
 using TFG.HomeWorks.WebApi.DTOs.House;
 
 namespace TFG.HomeWorks.WebApi.Controllers
@@ -29,6 +31,18 @@ namespace TFG.HomeWorks.WebApi.Controllers
             return await _houseService.List(request);
         }
 
+
+        /// <summary>
+        /// Obtiene una casa por el ID
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpGet("{Id}")]
+        public async Task<HouseGetByIdResponse> GetById([FromRoute] HouseGetByIdRequest request)
+        {
+            return await _houseService.GetById(request);
+        }
+
         /// <summary>
         /// Crea una casa
         /// </summary>
@@ -51,6 +65,31 @@ namespace TFG.HomeWorks.WebApi.Controllers
             );
 
             var response = await _houseService.Create(applicationRequest);
+            return CreatedAtAction(nameof(Create), new { response });
+        }
+
+        /// <summary>
+        /// Modifica los datos de una casa
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPut(Name = "UpdateHouse")]
+        public async Task<IActionResult> Update([FromForm] HouseUpdateRequestAPI request)
+        {
+            using var memoryStream = new MemoryStream();
+            if (request.Image != null)
+                await request.Image.CopyToAsync(memoryStream);
+
+            var applicationRequest = new HouseUpdateRequest(
+                request.Id,
+                request.Name,
+                request.Description,
+                request.Address,
+                memoryStream.Length > 0 ? memoryStream : null,
+                request.Image?.FileName
+            );
+
+            var response = await _houseService.Update(applicationRequest);
             return CreatedAtAction(nameof(Create), new { response });
         }
     }

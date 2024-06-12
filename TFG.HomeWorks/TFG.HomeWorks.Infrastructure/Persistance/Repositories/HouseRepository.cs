@@ -3,8 +3,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Linq.Expressions;
 using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Repositories;
-using TFG.HomeWorks.Application.Services.House.DTOs.GetHouseById;
-using TFG.HomeWorks.Application.Services.House.DTOs.HouseList;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.GetHouseById;
+using TFG.HomeWorks.Application.Services.House.DTOs.CRUD.HouseList;
 using TFG.HomeWorks.Domain.Entities.HouseAggregate;
 
 namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
@@ -106,8 +106,9 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
             var query = _dbContext.Set<House>().AsQueryable();
 
             return query
-                .Where(x => x.Id == request.Id)
-                .FirstOrDefaultAsync();
+                .Include(x => x.Members)
+                .ThenInclude(x => x.User)
+                .FirstOrDefaultAsync(x => x.Id == request.Id);
         }
 
 
