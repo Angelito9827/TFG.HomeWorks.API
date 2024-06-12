@@ -1,6 +1,6 @@
 ﻿namespace TFG.HomeWorks.Application.Services.House.DTOs.CRUD.HouseList
 {
-    public enum OrderByHouseListRequest
+    public enum HouseListRequestOrderBy
     {
         Default,
         Id,

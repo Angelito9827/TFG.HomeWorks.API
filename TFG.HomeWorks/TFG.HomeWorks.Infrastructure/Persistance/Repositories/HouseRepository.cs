@@ -45,7 +45,7 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
             return await query.CountAsync();
         }
 
-        private IQueryable<House> ApplySort(IQueryable<House> query, OrderByHouseListRequest orderBy, SortDirection sortDirection)
+        private IQueryable<House> ApplySort(IQueryable<House> query, HouseListRequestOrderBy orderBy, SortDirection sortDirection)
         {
             Expression<Func<House, object>> keySelector = ParseKeySelector(orderBy);
 
@@ -60,15 +60,15 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
 
         }
 
-        private Expression<Func<House, object>> ParseKeySelector(OrderByHouseListRequest orderBy)
+        private Expression<Func<House, object>> ParseKeySelector(HouseListRequestOrderBy orderBy)
         {
             return orderBy switch
             {
-                OrderByHouseListRequest.Id => entity => entity.Id,
-                OrderByHouseListRequest.Name => entity => entity.Name,
-                OrderByHouseListRequest.Description => entity => entity.Description,
-                OrderByHouseListRequest.Address => entity => entity.Address,
-                OrderByHouseListRequest.Default => entity => entity.Id,
+                HouseListRequestOrderBy.Id => entity => entity.Id,
+                HouseListRequestOrderBy.Name => entity => entity.Name,
+                HouseListRequestOrderBy.Description => entity => entity.Description,
+                HouseListRequestOrderBy.Address => entity => entity.Address,
+                HouseListRequestOrderBy.Default => entity => entity.Id,
 
                 _ => throw new NotImplementedException($"The selected field to order by is not valid")
             };

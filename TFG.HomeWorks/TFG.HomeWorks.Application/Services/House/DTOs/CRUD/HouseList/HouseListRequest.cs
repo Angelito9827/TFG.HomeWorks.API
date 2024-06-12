@@ -2,7 +2,7 @@
 
 namespace TFG.HomeWorks.Application.Services.House.DTOs.CRUD.HouseList
 {
-    public class HouseListRequest : PageListRequest<OrderByHouseListRequest>
+    public class HouseListRequest : PageListRequest<HouseListRequestOrderBy>
     {
         public int? Id { get; set; }
         public string? Name { get; set; }

@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
+using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Repositories;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.CreateTask;
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskList;
 using TFG.HomeWorks.Application.Validations;
 
 namespace TFG.HomeWorks.Application.Services.Task
@@ -28,7 +30,20 @@ namespace TFG.HomeWorks.Application.Services.Task
             _taskRepository = taskRepository;
         }
 
+        public async Task<PageListResponse<TaskListItemResponse>> List(TaskListRequest request)
+        {
+            _validator.EnsureIsValid(request);
 
+            var entities = await _taskRepository.List(request);
+
+            return new PageListResponse<TaskListItemResponse>
+            {
+                Elements = _mapper.Map<IEnumerable<TaskListItemResponse>>(entities),
+                Page = request.Page,
+                PageSize = request.PageSize,
+                TotalCount = await _taskRepository.Count(request)
+            };
+        }
         public async Task<TaskCreateResponse> Create(TaskCreateRequest request)
         {
             _validator.EnsureIsValid(request);
