@@ -17,7 +17,7 @@ namespace TFG.HomeWorks.Application.Exceptions
         [CustomApplicationExceptionCodeMessage("Usuario o contraseña no válido")]
         Auth_InvalidUserOrPassword = 2_001,
 
-        [CustomApplicationExceptionCodeMessage("El Email ya ha sido registrado")]
+        [CustomApplicationExceptionCodeMessage("El Email o el usuario ya ha sido registrado")]
         Auth_UserExist = 2_002,
 
         [CustomApplicationExceptionCodeMessage("Rol no válido")]

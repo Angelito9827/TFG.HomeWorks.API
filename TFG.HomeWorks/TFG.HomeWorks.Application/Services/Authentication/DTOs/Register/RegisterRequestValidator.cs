@@ -10,11 +10,6 @@ namespace TFG.HomeWorks.Application.Services.Authentication.DTOs.Register
                 .NotEmpty()
                 .EmailAddress();
 
-            RuleFor(x => x.BirthDate)
-                .NotEmpty()
-                .Must(BeAValidDate)
-                .WithMessage("Birth date must be a valid date");
-
             RuleFor(x => x.Password)
               .NotEmpty()
               .MinimumLength(6)
@@ -33,8 +28,7 @@ namespace TFG.HomeWorks.Application.Services.Authentication.DTOs.Register
                    password.Length >= 6 &&
                    ContainsCharacterFromSet(password, "abcdefghijklmnopqrstuvwxyz") &&
                    ContainsCharacterFromSet(password, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") &&
-                   ContainsCharacterFromSet(password, "0123456789") &&
-                   ContainsCharacterFromSet(password, "!@#$%^&*()-_=+");
+                   ContainsCharacterFromSet(password, "0123456789");
         }
 
         private bool ContainsCharacterFromSet(string password, string characterSet)

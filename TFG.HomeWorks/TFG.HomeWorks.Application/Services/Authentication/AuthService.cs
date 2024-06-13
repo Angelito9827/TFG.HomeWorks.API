@@ -44,18 +44,27 @@ namespace TFG.HomeWorks.Application.Services.Authentication
                 request.FirstName,
                 request.LastName1,
                 request.LastName2,
-                request.BirthDate,
+                request.BirthDate ?? DateTime.Now,
                 request.PhoneNumber,
                 hashedPassword,
                 salt,
                 request.Gender,
-                request.ProfileImage,
+                request.ProfileImage ?? string.Empty,
                 request.Role);
 
             await _userRepository.Add(entity);
             await _userRepository.SaveChanges();
 
-            return _mapper.Map<RegisterResponse>(entity);
+            return new RegisterResponse(
+                entity.Email,
+                entity.Username,
+                entity.FirstName,
+                entity.LastName1 ?? string.Empty,
+                entity.LastName2 ?? string.Empty,
+                entity.BirthDate,
+                entity.PhoneNumber,
+                Domain.Entities.UserAggregate.Gender.Unknown,
+                string.Empty);
         }
     }
 }
