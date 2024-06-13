@@ -12,8 +12,8 @@ using TFG.HomeWorks.Infrastructure.Persistance;
 namespace TFG.HomeWorks.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240613201249_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240613211815_SeedData")]
+    partial class SeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,56 +113,56 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         {
                             Id = 1,
                             Description = "Bathroom tasks description",
-                            Icon = "https://localhost:7126/icons/categories/bathroom.svg",
+                            Icon = "http://localhost:5153/icons/categories/bathroom.svg",
                             Name = "Bathroom"
                         },
                         new
                         {
                             Id = 2,
                             Description = "Bedroom tasks description",
-                            Icon = "https://localhost:7126/icons/categories/bedroom.svg",
+                            Icon = "http://localhost:5153/icons/categories/bedroom.svg",
                             Name = "Bedroom"
                         },
                         new
                         {
                             Id = 3,
                             Description = "Dinning-room tasks description",
-                            Icon = "https://localhost:7126/icons/categories/dinning-room.svg",
+                            Icon = "http://localhost:5153/icons/categories/dinning-room.svg",
                             Name = "Dinning room"
                         },
                         new
                         {
                             Id = 4,
                             Description = "Garage tasks description",
-                            Icon = "https://localhost:7126/icons/categories/garage.svg",
+                            Icon = "http://localhost:5153/icons/categories/garage.svg",
                             Name = "Garage"
                         },
                         new
                         {
                             Id = 5,
                             Description = "Garden tasks description",
-                            Icon = "https://localhost:7126/icons/categories/garden.svg",
+                            Icon = "http://localhost:5153/icons/categories/garden.svg",
                             Name = "Garden"
                         },
                         new
                         {
                             Id = 6,
                             Description = "Kitchen tasks description",
-                            Icon = "https://localhost:7126/icons/categories/kitchen.svg",
+                            Icon = "http://localhost:5153/icons/categories/kitchen.svg",
                             Name = "Kitchen"
                         },
                         new
                         {
                             Id = 7,
                             Description = "Living room tasks description",
-                            Icon = "https://localhost:7126/icons/categories/living-room.svg",
+                            Icon = "http://localhost:5153/icons/categories/living-room.svg",
                             Name = "Living room"
                         },
                         new
                         {
                             Id = 8,
                             Description = "office tasks description",
-                            Icon = "https://localhost:7126/icons/categories/office-room.svg",
+                            Icon = "http://localhost:5153/icons/categories/office-room.svg",
                             Name = "Office"
                         });
                 });

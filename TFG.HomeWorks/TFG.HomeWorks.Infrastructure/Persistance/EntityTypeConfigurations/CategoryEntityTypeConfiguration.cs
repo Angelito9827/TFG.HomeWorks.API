@@ -32,7 +32,7 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
               Id = 1,
               Name = "Bathroom",
               Description = "Bathroom tasks description",
-              Icon = "http://localhost:7126/icons/categories/bathroom.svg"
+              Icon = "http://localhost:5153/icons/categories/bathroom.svg"
           },
           new Category
           {

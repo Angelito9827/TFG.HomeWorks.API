@@ -208,14 +208,14 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                 columns: new[] { "Id", "Description", "Icon", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Bathroom tasks description", "https://localhost:7126/icons/categories/bathroom.svg", "Bathroom" },
-                    { 2, "Bedroom tasks description", "https://localhost:7126/icons/categories/bedroom.svg", "Bedroom" },
-                    { 3, "Dinning-room tasks description", "https://localhost:7126/icons/categories/dinning-room.svg", "Dinning room" },
-                    { 4, "Garage tasks description", "https://localhost:7126/icons/categories/garage.svg", "Garage" },
-                    { 5, "Garden tasks description", "https://localhost:7126/icons/categories/garden.svg", "Garden" },
-                    { 6, "Kitchen tasks description", "https://localhost:7126/icons/categories/kitchen.svg", "Kitchen" },
-                    { 7, "Living room tasks description", "https://localhost:7126/icons/categories/living-room.svg", "Living room" },
-                    { 8, "office tasks description", "https://localhost:7126/icons/categories/office-room.svg", "Office" }
+                    { 1, "Bathroom tasks description", "http://localhost:7126/icons/categories/bathroom.svg", "Bathroom" },
+                    { 2, "Bedroom tasks description", "http://localhost:5153/icons/categories/bedroom.svg", "Bedroom" },
+                    { 3, "Dinning-room tasks description", "http://localhost:5153/icons/categories/dinning-room.svg", "Dinning room" },
+                    { 4, "Garage tasks description", "http://localhost:5153/icons/categories/garage.svg", "Garage" },
+                    { 5, "Garden tasks description", "http://localhost:5153/icons/categories/garden.svg", "Garden" },
+                    { 6, "Kitchen tasks description", "http://localhost:5153/icons/categories/kitchen.svg", "Kitchen" },
+                    { 7, "Living room tasks description", "http://localhost:5153/icons/categories/living-room.svg", "Living room" },
+                    { 8, "office tasks description", "http://localhost:5153/icons/categories/office-room.svg", "Office" }
                 });
 
             migrationBuilder.InsertData(

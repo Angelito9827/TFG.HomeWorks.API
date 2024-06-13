@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TFG.HomeWorks.Infrastructure.Persistance;
 
@@ -11,9 +12,11 @@ using TFG.HomeWorks.Infrastructure.Persistance;
 namespace TFG.HomeWorks.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240613211635_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,7 +113,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         {
                             Id = 1,
                             Description = "Bathroom tasks description",
-                            Icon = "http://localhost:5153/icons/categories/bathroom.svg",
+                            Icon = "http://localhost:7126/icons/categories/bathroom.svg",
                             Name = "Bathroom"
                         },
                         new
