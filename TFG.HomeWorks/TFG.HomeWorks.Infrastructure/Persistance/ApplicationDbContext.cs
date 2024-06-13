@@ -22,6 +22,12 @@ namespace TFG.HomeWorks.Infrastructure.Persistance
             // Configura el mapeo de base de datos para todas las entidades que tengan definida una imlplementacion de IEntityTypeConfiguration
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySql("Server=127.0.0.1;Port=3306;Database=TFG.HomeWorks;Uid=root;Pwd=mypassword;",
+                new MySqlServerVersion(new Version(8, 0, 32)),
+                options => options.SchemaBehavior(Pomelo.EntityFrameworkCore.MySql.Infrastructure.MySqlSchemaBehavior.Ignore));
+        }
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TFG.HomeWorks.Application.ExternalServices;
 using TFG.HomeWorks.Application.ExternalServices.Files;
@@ -17,14 +16,18 @@ namespace TFG.HomeWorks.Infrastructure
     {
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>((sp, options) =>
-            {
-                var configuration = sp.GetRequiredService<IConfiguration>();
-                options.UseSqlServer(configuration.GetConnectionString("ApplicationDbContext"));
 
-            });
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseMySql("Server=127.0.0.1;Port=3306;Database=TFG.HomeWorks;Uid=root;Pwd=mypassword;",
+               new MySqlServerVersion(new Version(8, 0, 32)),
+               mysqlOptions =>
+                   mysqlOptions.SchemaBehavior(Pomelo.EntityFrameworkCore.MySql.Infrastructure.MySqlSchemaBehavior.Ignore)
+            ));
+
             services.AddScoped<DbConnectionFactory>();
             services.AddScoped(sp => sp.GetRequiredService<DbConnectionFactory>().GetDbConnection(DbConnectionEnum.APP));
+
+            services.AddOptions<ConnectionStrings>().BindConfiguration(nameof(ConnectionStrings));
 
             services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
 

@@ -23,6 +23,8 @@ namespace TFG.HomeWorks.WebApi.Host
 
             app.UseStaticFiles();
 
+            app.UseCors(options => options.AllowAnyOrigin());
+
             app.UseSerilogRequestLogging(options => options.IncludeQueryInRequestPath = true);
 
             // Habilitar para proyectos con Frontend + Backend
@@ -47,9 +49,9 @@ namespace TFG.HomeWorks.WebApi.Host
             //        , "dist", "portal-de-clientes", "index.html")));
 
 #warning Esto es para fines de demostración y poder probar la plantilla
-            EnsureDatabaseCreated(app);
+            //EnsureDatabaseCreated(app);
             // Para ejecutar las migraciones automáticamente
-            EnsureDatabaseUpdated(app);
+            //EnsureDatabaseUpdated(app);
 
             app.Run();
         }

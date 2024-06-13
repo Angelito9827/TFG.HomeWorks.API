@@ -32,56 +32,56 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
               Id = 1,
               Name = "Bathroom",
               Description = "Bathroom tasks description",
-              Icon = "https://localhost:7126/icons/categories/bathroom.svg"
+              Icon = "http://localhost:7126/icons/categories/bathroom.svg"
           },
           new Category
           {
               Id = 2,
               Name = "Bedroom",
               Description = "Bedroom tasks description",
-              Icon = "https://localhost:7126/icons/categories/bedroom.svg"
+              Icon = "http://localhost:5153/icons/categories/bedroom.svg"
           },
           new Category
           {
               Id = 3,
               Name = "Dinning room",
               Description = "Dinning-room tasks description",
-              Icon = "https://localhost:7126/icons/categories/dinning-room.svg"
+              Icon = "http://localhost:5153/icons/categories/dinning-room.svg"
           },
           new Category
           {
               Id = 4,
               Name = "Garage",
               Description = "Garage tasks description",
-              Icon = "https://localhost:7126/icons/categories/garage.svg"
+              Icon = "http://localhost:5153/icons/categories/garage.svg"
           },
           new Category
           {
               Id = 5,
               Name = "Garden",
               Description = "Garden tasks description",
-              Icon = "https://localhost:7126/icons/categories/garden.svg"
+              Icon = "http://localhost:5153/icons/categories/garden.svg"
           },
           new Category
           {
               Id = 6,
               Name = "Kitchen",
               Description = "Kitchen tasks description",
-              Icon = "https://localhost:7126/icons/categories/kitchen.svg"
+              Icon = "http://localhost:5153/icons/categories/kitchen.svg"
           },
           new Category
           {
               Id = 7,
               Name = "Living room",
               Description = "Living room tasks description",
-              Icon = "https://localhost:7126/icons/categories/living-room.svg"
+              Icon = "http://localhost:5153/icons/categories/living-room.svg"
           },
           new Category
           {
               Id = 8,
               Name = "Office",
               Description = "office tasks description",
-              Icon = "https://localhost:7126/icons/categories/office-room.svg"
+              Icon = "http://localhost:5153/icons/categories/office-room.svg"
           }
       );
 

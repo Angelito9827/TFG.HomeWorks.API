@@ -10,8 +10,6 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations.Base
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).IsRequired();
-
-            builder.Property<byte[]>("RowVersion").IsRowVersion();
         }
     }
 }

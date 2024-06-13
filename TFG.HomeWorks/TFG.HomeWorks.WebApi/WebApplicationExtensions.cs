@@ -18,7 +18,7 @@ namespace TFG.HomeWorks.WebApi
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapControllers().RequireAuthorization();
+            app.MapControllers();
         }
     }
 }
