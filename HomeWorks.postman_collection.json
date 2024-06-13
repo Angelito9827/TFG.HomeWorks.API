@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "c0b8ab32-7547-41c1-b29c-636c170833fb",
+		"name": "HomeWorks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33648098"
+	},
+	"item": [
+		{
+			"name": "House",
+			"item": [
+				{
+					"name": "Get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{houseController}}?Description=Buena&Address=Calle&Page=0&PageSize=15&OrderBy=Id&SortDirection=Desc",
+							"host": [
+								"{{baseUrl}}{{houseController}}"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "8",
+									"disabled": true
+								},
+								{
+									"key": "Name",
+									"value": "Casa en la manga",
+									"disabled": true
+								},
+								{
+									"key": "Description",
+									"value": "Buena"
+								},
+								{
+									"key": "Address",
+									"value": "Calle"
+								},
+								{
+									"key": "Page",
+									"value": "0"
+								},
+								{
+									"key": "PageSize",
+									"value": "15"
+								},
+								{
+									"key": "OrderBy",
+									"value": "Id"
+								},
+								{
+									"key": "SortDirection",
+									"value": "Desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{houseController}}/:id",
+							"host": [
+								"{{baseUrl}}{{houseController}}"
+							],
+							"path": [
+								":id"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "8",
+									"disabled": true
+								},
+								{
+									"key": "Name",
+									"value": "Casa en la manga",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Casa en la Manga",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Buena vista, mejor alquiler",
+									"type": "text"
+								},
+								{
+									"key": "Address",
+									"value": "Calle falsa 123",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Guame/Pictures/f476772ae7b93639a802622dcfe14848.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{houseController}}",
+							"host": [
+								"{{baseUrl}}{{houseController}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Casa en la Manga modificada",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Buena vista, mejor alquiler modificada",
+									"type": "text"
+								},
+								{
+									"key": "Address",
+									"value": "Calle falsa 123 modificada",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Pablo/Elithel/Prototypes/Optimized images for make requests/external-resources/optimized-images-for-testing/imageCarousel2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{houseController}}",
+							"host": [
+								"{{baseUrl}}{{houseController}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{houseController}}/:id",
+							"host": [
+								"{{baseUrl}}{{houseController}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{TaskController}}?Page=0&PageSize=12",
+							"host": [
+								"{{baseUrl}}{{TaskController}}"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "Name",
+									"value": "asdasd",
+									"disabled": true
+								},
+								{
+									"key": "Description",
+									"value": "asasdasd",
+									"disabled": true
+								},
+								{
+									"key": "State",
+									"value": "New",
+									"disabled": true
+								},
+								{
+									"key": "CreationDate",
+									"value": "2024-06-12T23%3A25%3A31.6431436",
+									"disabled": true
+								},
+								{
+									"key": "DeadlineDate",
+									"value": "2024-06-12T21%3A24%3A21.678",
+									"disabled": true
+								},
+								{
+									"key": "AssignedTo",
+									"value": "asdasd",
+									"disabled": true
+								},
+								{
+									"key": "AssignedBy",
+									"value": "asdasd",
+									"disabled": true
+								},
+								{
+									"key": "CategoryId",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "HouseId",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "Page",
+									"value": "0"
+								},
+								{
+									"key": "PageSize",
+									"value": "12"
+								},
+								{
+									"key": "OrderBy",
+									"value": "Name",
+									"disabled": true
+								},
+								{
+									"key": "SortDirection",
+									"value": "Desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{TaskController}}/:id",
+							"host": [
+								"{{baseUrl}}{{TaskController}}"
+							],
+							"path": [
+								":id"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "8",
+									"disabled": true
+								},
+								{
+									"key": "Name",
+									"value": "Casa en la manga",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Tarea 1\",\r\n  \"description\": \"Mi descripción\",\r\n  \"creationDate\": \"2024-06-12\",\r\n  \"deadlineDate\": \"2024-12-22\",\r\n  \"assignedTo\": \"Pablo\",\r\n  \"assignedBy\": \"Guame\",\r\n  \"houseId\": 2,\r\n  \"categoryId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{TaskController}}",
+							"host": [
+								"{{baseUrl}}{{TaskController}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Casa en la Manga modificada",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Buena vista, mejor alquiler modificada",
+									"type": "text"
+								},
+								{
+									"key": "Address",
+									"value": "Calle falsa 123 modificada",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Pablo/Elithel/Prototypes/Optimized images for make requests/external-resources/optimized-images-for-testing/imageCarousel2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{TaskController}}",
+							"host": [
+								"{{baseUrl}}{{TaskController}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{TaskController}}/:id",
+							"host": [
+								"{{baseUrl}}{{TaskController}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:7126/"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBhYmxvIiwic3ViIjoiUGFibG8iLCJqdGkiOiI3MmNhNzg4ZCIsImF1ZCI6WyJodHRwOi8vbG9jYWxob3N0OjMwMDI4IiwiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMjMiLCJodHRwOi8vbG9jYWxob3N0OjUxNTMiLCJodHRwczovL2xvY2FsaG9zdDo3MTI2Il0sIm5iZiI6MTcxNjEwODUxNiwiZXhwIjoxNzI0MDU3MzE2LCJpYXQiOjE3MTYxMDg1MTcsImlzcyI6ImRvdG5ldC11c2VyLWp3dHMifQ.GwKrfesyGfROVdonjO8Mt2eXEu-Xv431rowV_54ShDk",
+			"type": "string"
+		},
+		{
+			"key": "houseController",
+			"value": "house"
+		},
+		{
+			"key": "TaskController",
+			"value": "task"
+		}
+	]
+}
