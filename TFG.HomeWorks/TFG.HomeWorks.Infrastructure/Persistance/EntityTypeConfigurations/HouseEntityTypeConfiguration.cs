@@ -32,6 +32,24 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
                 .HasForeignKey(m => m.HouseId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Seed data
+            builder.HasData(GetPreconfiguredHouses());
+        }
+        private List<House> GetPreconfiguredHouses()
+        {
+            var houses = new List<House>();
+            for (int i = 1; i <= 20; i++)
+            {
+                houses.Add(new House(
+                    id: i * 100,
+                    name: $"Mi Casa {i}",
+                    description: $"Descripción de mi casa {i}",
+                    address: $"Dirección de mi casa {i}",
+                    profileImage: $"uploads/default.jpg",
+                    isAdmin: false
+                ));
+            }
+            return houses;
         }
     }
 

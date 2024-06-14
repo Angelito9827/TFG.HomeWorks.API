@@ -9,12 +9,22 @@ namespace TFG.HomeWorks.Domain.Entities.HouseAggregate
         public string? Description { get; set; }
         public string? Address { get; set; }
         public string ProfileImage { get; set; }
-        public bool isAdmin { get; set; }
+        public bool IsAdmin { get; set; }
 
         public ICollection<HouseMember> Members { get; set; }
 
         //Constructors
         private House() { }
+
+        public House(int id, string name, string? description, string? address, string profileImage, bool isAdmin)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Address = address;
+            ProfileImage = profileImage;
+            IsAdmin = isAdmin;
+        }
 
         public House(int id, string name, string? description, string? address, string profileImage)
         {
@@ -23,7 +33,7 @@ namespace TFG.HomeWorks.Domain.Entities.HouseAggregate
             Description = description;
             Address = address;
             ProfileImage = profileImage;
-            isAdmin = true;
+            IsAdmin = true;
         }
         public House(string name, string? description, string? address, string profileImage)
         {
@@ -31,7 +41,7 @@ namespace TFG.HomeWorks.Domain.Entities.HouseAggregate
             Description = description;
             Address = address;
             ProfileImage = profileImage;
-            isAdmin = true;
+            IsAdmin = true;
         }
     }
 }
