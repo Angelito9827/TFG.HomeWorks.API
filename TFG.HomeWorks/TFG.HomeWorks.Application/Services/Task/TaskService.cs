@@ -7,6 +7,7 @@ using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.CreateTask;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.DeleteTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskList;
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.UpdateTask;
 using TFG.HomeWorks.Application.Validations;
 
 namespace TFG.HomeWorks.Application.Services.Task
@@ -102,8 +103,33 @@ namespace TFG.HomeWorks.Application.Services.Task
             entity.State = request.State;
 
             _taskRepository.Update(entity);
-            _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
         }
+
+        public async System.Threading.Tasks.Task Update(TaskUpdateRequest request)
+        {
+            _validator.EnsureIsValid(request);
+            var entity = await _taskRepository.GetById(new TaskGetByIdRequest(request.Id));
+
+            if (entity is null)
+                throw new KeyNotFoundException(nameof(Domain.Entities.HouseAggregate.House));
+
+            entity.Name = request.Name;
+            entity.Description = request.Description;
+            entity.State = request.State;
+            entity.CreationDate = request.CreationDate;
+            entity.DeadlineDate = request.DeadlineDate;
+            entity.AssignedTo = request.AssignedTo;
+            entity.AssignedBy = request.AssignedBy ?? "user@example.com";
+            entity.CategoryId = request.CategoryId;
+            entity.HouseId = request.HouseId;
+
+
+            _taskRepository.Update(entity);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+
 
     }
 }

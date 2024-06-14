@@ -4,6 +4,7 @@ using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.CreateTask;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.DeleteTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskList;
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.UpdateTask;
 
 namespace TFG.HomeWorks.Application.Services.Task
 {
@@ -14,5 +15,6 @@ namespace TFG.HomeWorks.Application.Services.Task
         System.Threading.Tasks.Task Delete(TaskDeleteByIdRequest request);
         Task<TaskGetByIdResponse> GetById(TaskGetByIdRequest request);
         Task<PageListResponse<TaskListItemResponse>> List(TaskListRequest request);
+        System.Threading.Tasks.Task Update(TaskUpdateRequest request);
     }
 }

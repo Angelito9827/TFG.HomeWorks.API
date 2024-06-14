@@ -29,6 +29,8 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
             query = ApplySort(query, request.OrderBy, request.SortDirection);
 
             return await query
+                .Include(x => x.House)
+                .Include(x => x.Category)
                 .Skip(request.PageSize * request.Page)
                 .Take(request.PageSize)
                 .ToListAsync();

@@ -6,6 +6,7 @@ using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.CreateTask;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.DeleteTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskList;
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.UpdateTask;
 
 namespace TFG.HomeWorks.WebApi.Controllers
 {
@@ -79,6 +80,18 @@ namespace TFG.HomeWorks.WebApi.Controllers
         public async Task<IActionResult> ChangeState(TaskChangeStateRequest request)
         {
             await _taskService.ChangeState(request);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Actualiza los datos de una tarea
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<IActionResult> Update(TaskUpdateRequest request)
+        {
+            await _taskService.Update(request);
             return NoContent();
         }
 
