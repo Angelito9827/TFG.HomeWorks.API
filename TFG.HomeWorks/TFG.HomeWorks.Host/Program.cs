@@ -16,6 +16,14 @@ namespace TFG.HomeWorks.WebApi.Host
                 .AddApiServices()
                 .AddApplicationServices()
                 .AddInfrastructureServices();
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowLocalhost4200",
+                    builder => builder
+                        .WithOrigins("http://localhost:4200")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
 
             builder.Host.UseSerilog((context, config) => config.ReadFrom.Configuration(context.Configuration));
 
@@ -23,7 +31,7 @@ namespace TFG.HomeWorks.WebApi.Host
 
             app.UseStaticFiles();
 
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors("AllowLocalhost4200");
 
             app.UseSerilogRequestLogging(options => options.IncludeQueryInRequestPath = true);
 

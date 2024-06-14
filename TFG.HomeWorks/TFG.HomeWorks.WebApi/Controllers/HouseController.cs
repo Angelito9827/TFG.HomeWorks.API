@@ -54,15 +54,15 @@ namespace TFG.HomeWorks.WebApi.Controllers
         public async Task<IActionResult> Create([FromForm] HouseCreateRequestAPI request)
         {
             using var memoryStream = new MemoryStream();
-            if (request.Image != null)
-                await request.Image.CopyToAsync(memoryStream);
+            if (request.ProfileImage != null)
+                await request.ProfileImage.CopyToAsync(memoryStream);
 
             var applicationRequest = new HouseCreateRequest(
                 request.Name,
                 request.Description,
                 request.Address,
                 memoryStream.Length > 0 ? memoryStream : null,
-                request.Image?.FileName
+                request.ProfileImage?.FileName
             );
 
             var response = await _houseService.Create(applicationRequest);
