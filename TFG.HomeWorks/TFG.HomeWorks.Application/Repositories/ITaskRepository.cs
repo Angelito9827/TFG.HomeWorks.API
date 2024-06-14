@@ -1,5 +1,6 @@
 ﻿
 
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskList;
 
 namespace TFG.HomeWorks.Application.Repositories
@@ -8,6 +9,11 @@ namespace TFG.HomeWorks.Application.Repositories
     {
         void Add(Domain.Entities.TaskAggregate.Task entity);
         Task<int> Count(TaskListRequest request);
+        void Delete(Domain.Entities.TaskAggregate.Task entity);
+        Task<Domain.Entities.TaskAggregate.Task?> GetById(TaskGetByIdRequest request);
         Task<IEnumerable<Domain.Entities.TaskAggregate.Task>> List(TaskListRequest request);
+
+        void Update(Domain.Entities.TaskAggregate.Task entity);
     }
+
 }

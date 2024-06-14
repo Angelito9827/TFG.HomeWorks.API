@@ -2,7 +2,10 @@
 using Microsoft.Extensions.Logging;
 using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Repositories;
+using TFG.HomeWorks.Application.Services.Task.DTOs.ChangeTaskState;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.CreateTask;
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.DeleteTaskById;
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskList;
 using TFG.HomeWorks.Application.Validations;
 
@@ -61,6 +64,45 @@ namespace TFG.HomeWorks.Application.Services.Task
 
             await _unitOfWork.SaveChangesAsync();
             return new TaskCreateResponse(entity.Id);
+        }
+        public async System.Threading.Tasks.Task Delete(TaskDeleteByIdRequest request)
+        {
+            _validator.EnsureIsValid(request);
+
+            var entity = await _taskRepository.GetById(new TaskGetByIdRequest(request.Id));
+
+            if (entity is null)
+                throw new KeyNotFoundException(nameof(Domain.Entities.TaskAggregate.Task));
+
+            _taskRepository.Delete(entity);
+            await _unitOfWork.SaveChangesAsync();
+
+        }
+
+        public async Task<TaskGetByIdResponse> GetById(TaskGetByIdRequest request)
+        {
+            _validator.EnsureIsValid(request);
+            var entity = await _taskRepository.GetById(request);
+
+            if (entity is null)
+                throw new KeyNotFoundException(nameof(Domain.Entities.HouseAggregate.House));
+
+            var response = _mapper.Map<TaskGetByIdResponse>(entity);
+            return response;
+        }
+
+        public async System.Threading.Tasks.Task ChangeState(TaskChangeStateRequest request)
+        {
+            _validator.EnsureIsValid(request);
+            var entity = await _taskRepository.GetById(new TaskGetByIdRequest(request.Id));
+
+            if (entity is null)
+                throw new KeyNotFoundException(nameof(Domain.Entities.HouseAggregate.House));
+
+            entity.State = request.State;
+
+            _taskRepository.Update(entity);
+            _unitOfWork.SaveChangesAsync();
         }
 
     }

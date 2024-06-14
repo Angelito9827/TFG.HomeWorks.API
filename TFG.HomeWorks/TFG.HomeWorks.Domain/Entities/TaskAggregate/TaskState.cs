@@ -5,7 +5,6 @@
         Draft,
         New,
         InProgress,
-        Finished,
-        Expired
+        Finished
     }
 }

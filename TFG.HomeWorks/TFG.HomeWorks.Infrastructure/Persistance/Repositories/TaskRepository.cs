@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Linq.Expressions;
 using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Repositories;
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskList;
 
 namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
@@ -108,6 +109,22 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.Repositories
             return query;
         }
 
+        public Task<Domain.Entities.TaskAggregate.Task?> GetById(TaskGetByIdRequest request)
+        {
+            var query = _dbContext.Set<Domain.Entities.TaskAggregate.Task>().AsQueryable();
 
+            return query
+                .FirstOrDefaultAsync(x => x.Id == request.Id);
+        }
+
+        public void Delete(Domain.Entities.TaskAggregate.Task entity)
+        {
+            _dbContext.Remove(entity);
+        }
+
+        public void Update(Domain.Entities.TaskAggregate.Task entity)
+        {
+            _dbContext.Update(entity);
+        }
     }
 }

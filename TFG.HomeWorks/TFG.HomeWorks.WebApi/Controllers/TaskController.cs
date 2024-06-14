@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TFG.HomeWorks.Application.Base;
 using TFG.HomeWorks.Application.Services.Task;
+using TFG.HomeWorks.Application.Services.Task.DTOs.ChangeTaskState;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.CreateTask;
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.DeleteTaskById;
+using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskById;
 using TFG.HomeWorks.Application.Services.Task.DTOs.CRUD.GetTaskList;
 
 namespace TFG.HomeWorks.WebApi.Controllers
@@ -39,5 +42,45 @@ namespace TFG.HomeWorks.WebApi.Controllers
             var response = await _taskService.Create(request);
             return CreatedAtAction(nameof(Create), new { response });
         }
+
+
+
+        /// <summary>
+        /// Obtiene una casa por el ID
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpGet("{Id}")]
+        public async Task<TaskGetByIdResponse> GetById([FromRoute] TaskGetByIdRequest request)
+        {
+            return await _taskService.GetById(request);
+        }
+
+
+        /// <summary>
+        /// Borrar una casa por el ID
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] TaskDeleteByIdRequest request)
+        {
+            await _taskService.Delete(request);
+            return NoContent();
+        }
+
+
+        /// <summary>
+        /// Cambia el estado de una tarea 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPatch]
+        public async Task<IActionResult> ChangeState(TaskChangeStateRequest request)
+        {
+            await _taskService.ChangeState(request);
+            return NoContent();
+        }
+
     }
 }
