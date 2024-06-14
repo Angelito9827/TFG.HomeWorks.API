@@ -9,6 +9,6 @@ namespace TFG.HomeWorks.WebApi.DTOs.House
         public string? Description { get; set; }
         public string? Address { get; set; }
 
-        public IFormFile? Image { get; set; }
+        public IFormFile? ProfileImage { get; set; }
     }
 }

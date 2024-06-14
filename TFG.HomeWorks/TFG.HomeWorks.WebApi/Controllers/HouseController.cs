@@ -78,8 +78,8 @@ namespace TFG.HomeWorks.WebApi.Controllers
         public async Task<IActionResult> Update([FromForm] HouseUpdateRequestAPI request)
         {
             using var memoryStream = new MemoryStream();
-            if (request.Image != null)
-                await request.Image.CopyToAsync(memoryStream);
+            if (request.ProfileImage != null)
+                await request.ProfileImage.CopyToAsync(memoryStream);
 
             var applicationRequest = new HouseUpdateRequest()
             {
@@ -88,7 +88,7 @@ namespace TFG.HomeWorks.WebApi.Controllers
                 Description = request.Description,
                 Address = request.Address,
                 ProfileImage = memoryStream.Length > 0 ? memoryStream : null,
-                FileName = request.Image?.FileName
+                FileName = request.ProfileImage?.FileName
             };
 
             var response = await _houseService.Update(applicationRequest);
