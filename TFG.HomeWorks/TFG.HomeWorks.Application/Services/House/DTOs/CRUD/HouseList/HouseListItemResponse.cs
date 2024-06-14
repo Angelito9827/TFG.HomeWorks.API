@@ -7,5 +7,6 @@
         public string? Description { get; set; }
         public string? Address { get; set; }
         public string? ProfileImage { get; set; }
+        public bool isAdmin { get; set; }
     }
 }

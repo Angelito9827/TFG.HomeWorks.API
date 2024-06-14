@@ -9,6 +9,7 @@ namespace TFG.HomeWorks.Application.Services.House.DTOs.CRUD.GetHouseById
         public string? Description { get; set; }
         public string? Address { get; set; }
         public string? ProfileImage { get; set; }
+        public bool IsAdmin { get; set; }
         public List<HouseMemberDto> Members { get; set; }
     }
 }

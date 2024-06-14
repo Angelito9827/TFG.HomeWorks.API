@@ -75,8 +75,11 @@ namespace TFG.HomeWorks.Application.Services.House
             if (entity is null)
                 throw new KeyNotFoundException(nameof(Domain.Entities.HouseAggregate.House));
 
-            return _mapper.Map<HouseGetByIdResponse>(entity);
+            var response = _mapper.Map<HouseGetByIdResponse>(entity);
+            response.ProfileImage = GenerateImageUrl(entity.ProfileImage);
+            return response;
         }
+
 
         public async Task<HouseCreateResponse> Create(HouseCreateRequest request)
         {
