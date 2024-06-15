@@ -116,13 +116,13 @@ namespace TFG.HomeWorks.Application.Services.Task
 
             entity.Name = request.Name;
             entity.Description = request.Description;
-            entity.State = request.State;
-            entity.CreationDate = request.CreationDate;
+            entity.State = request.State ?? entity.State;
+            entity.CreationDate = request.CreationDate ?? entity.CreationDate;
             entity.DeadlineDate = request.DeadlineDate;
             entity.AssignedTo = request.AssignedTo;
             entity.AssignedBy = request.AssignedBy ?? "user@example.com";
             entity.CategoryId = request.CategoryId;
-            entity.HouseId = request.HouseId;
+            entity.HouseId = request.HouseId ?? entity.HouseId;
 
 
             _taskRepository.Update(entity);
