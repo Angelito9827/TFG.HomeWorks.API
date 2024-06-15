@@ -12,8 +12,8 @@ using TFG.HomeWorks.Infrastructure.Persistance;
 namespace TFG.HomeWorks.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240613211815_SeedData")]
-    partial class SeedData
+    [Migration("20240615122809_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,9 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("varchar(500)");
 
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -55,6 +58,188 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Houses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Dirección de mi casa 1",
+                            Description = "Descripción de mi casa 1",
+                            IsAdmin = false,
+                            Name = "Mi Casa 1",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Dirección de mi casa 2",
+                            Description = "Descripción de mi casa 2",
+                            IsAdmin = false,
+                            Name = "Mi Casa 2",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Dirección de mi casa 3",
+                            Description = "Descripción de mi casa 3",
+                            IsAdmin = false,
+                            Name = "Mi Casa 3",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Dirección de mi casa 4",
+                            Description = "Descripción de mi casa 4",
+                            IsAdmin = false,
+                            Name = "Mi Casa 4",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Dirección de mi casa 5",
+                            Description = "Descripción de mi casa 5",
+                            IsAdmin = false,
+                            Name = "Mi Casa 5",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Dirección de mi casa 6",
+                            Description = "Descripción de mi casa 6",
+                            IsAdmin = false,
+                            Name = "Mi Casa 6",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Dirección de mi casa 7",
+                            Description = "Descripción de mi casa 7",
+                            IsAdmin = false,
+                            Name = "Mi Casa 7",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Dirección de mi casa 8",
+                            Description = "Descripción de mi casa 8",
+                            IsAdmin = false,
+                            Name = "Mi Casa 8",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Dirección de mi casa 9",
+                            Description = "Descripción de mi casa 9",
+                            IsAdmin = false,
+                            Name = "Mi Casa 9",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "Dirección de mi casa 10",
+                            Description = "Descripción de mi casa 10",
+                            IsAdmin = false,
+                            Name = "Mi Casa 10",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Dirección de mi casa 11",
+                            Description = "Descripción de mi casa 11",
+                            IsAdmin = false,
+                            Name = "Mi Casa 11",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "Dirección de mi casa 12",
+                            Description = "Descripción de mi casa 12",
+                            IsAdmin = false,
+                            Name = "Mi Casa 12",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "Dirección de mi casa 13",
+                            Description = "Descripción de mi casa 13",
+                            IsAdmin = false,
+                            Name = "Mi Casa 13",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Address = "Dirección de mi casa 14",
+                            Description = "Descripción de mi casa 14",
+                            IsAdmin = false,
+                            Name = "Mi Casa 14",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Address = "Dirección de mi casa 15",
+                            Description = "Descripción de mi casa 15",
+                            IsAdmin = false,
+                            Name = "Mi Casa 15",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Address = "Dirección de mi casa 16",
+                            Description = "Descripción de mi casa 16",
+                            IsAdmin = false,
+                            Name = "Mi Casa 16",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Address = "Dirección de mi casa 17",
+                            Description = "Descripción de mi casa 17",
+                            IsAdmin = false,
+                            Name = "Mi Casa 17",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Address = "Dirección de mi casa 18",
+                            Description = "Descripción de mi casa 18",
+                            IsAdmin = false,
+                            Name = "Mi Casa 18",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Address = "Dirección de mi casa 19",
+                            Description = "Descripción de mi casa 19",
+                            IsAdmin = false,
+                            Name = "Mi Casa 19",
+                            ProfileImage = "uploads/default.jpg"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Address = "Dirección de mi casa 20",
+                            Description = "Descripción de mi casa 20",
+                            IsAdmin = false,
+                            Name = "Mi Casa 20",
+                            ProfileImage = "uploads/default.jpg"
+                        });
                 });
 
             modelBuilder.Entity("TFG.HomeWorks.Domain.Entities.HouseAggregate.HouseMember", b =>

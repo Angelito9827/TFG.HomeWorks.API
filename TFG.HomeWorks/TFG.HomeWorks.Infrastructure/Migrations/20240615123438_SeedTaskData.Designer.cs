@@ -12,8 +12,8 @@ using TFG.HomeWorks.Infrastructure.Persistance;
 namespace TFG.HomeWorks.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240614184506_SeedHousesData")]
-    partial class SeedHousesData
+    [Migration("20240615123438_SeedTaskData")]
+    partial class SeedTaskData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 100,
+                            Id = 1,
                             Address = "Dirección de mi casa 1",
                             Description = "Descripción de mi casa 1",
                             IsAdmin = false,
@@ -71,7 +71,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 200,
+                            Id = 2,
                             Address = "Dirección de mi casa 2",
                             Description = "Descripción de mi casa 2",
                             IsAdmin = false,
@@ -80,7 +80,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 300,
+                            Id = 3,
                             Address = "Dirección de mi casa 3",
                             Description = "Descripción de mi casa 3",
                             IsAdmin = false,
@@ -89,7 +89,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 400,
+                            Id = 4,
                             Address = "Dirección de mi casa 4",
                             Description = "Descripción de mi casa 4",
                             IsAdmin = false,
@@ -98,7 +98,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 500,
+                            Id = 5,
                             Address = "Dirección de mi casa 5",
                             Description = "Descripción de mi casa 5",
                             IsAdmin = false,
@@ -107,7 +107,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 600,
+                            Id = 6,
                             Address = "Dirección de mi casa 6",
                             Description = "Descripción de mi casa 6",
                             IsAdmin = false,
@@ -116,7 +116,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 700,
+                            Id = 7,
                             Address = "Dirección de mi casa 7",
                             Description = "Descripción de mi casa 7",
                             IsAdmin = false,
@@ -125,7 +125,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 800,
+                            Id = 8,
                             Address = "Dirección de mi casa 8",
                             Description = "Descripción de mi casa 8",
                             IsAdmin = false,
@@ -134,7 +134,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 900,
+                            Id = 9,
                             Address = "Dirección de mi casa 9",
                             Description = "Descripción de mi casa 9",
                             IsAdmin = false,
@@ -143,7 +143,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1000,
+                            Id = 10,
                             Address = "Dirección de mi casa 10",
                             Description = "Descripción de mi casa 10",
                             IsAdmin = false,
@@ -152,7 +152,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1100,
+                            Id = 11,
                             Address = "Dirección de mi casa 11",
                             Description = "Descripción de mi casa 11",
                             IsAdmin = false,
@@ -161,7 +161,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1200,
+                            Id = 12,
                             Address = "Dirección de mi casa 12",
                             Description = "Descripción de mi casa 12",
                             IsAdmin = false,
@@ -170,7 +170,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1300,
+                            Id = 13,
                             Address = "Dirección de mi casa 13",
                             Description = "Descripción de mi casa 13",
                             IsAdmin = false,
@@ -179,7 +179,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1400,
+                            Id = 14,
                             Address = "Dirección de mi casa 14",
                             Description = "Descripción de mi casa 14",
                             IsAdmin = false,
@@ -188,7 +188,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1500,
+                            Id = 15,
                             Address = "Dirección de mi casa 15",
                             Description = "Descripción de mi casa 15",
                             IsAdmin = false,
@@ -197,7 +197,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1600,
+                            Id = 16,
                             Address = "Dirección de mi casa 16",
                             Description = "Descripción de mi casa 16",
                             IsAdmin = false,
@@ -206,7 +206,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1700,
+                            Id = 17,
                             Address = "Dirección de mi casa 17",
                             Description = "Descripción de mi casa 17",
                             IsAdmin = false,
@@ -215,7 +215,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1800,
+                            Id = 18,
                             Address = "Dirección de mi casa 18",
                             Description = "Descripción de mi casa 18",
                             IsAdmin = false,
@@ -224,7 +224,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 1900,
+                            Id = 19,
                             Address = "Dirección de mi casa 19",
                             Description = "Descripción de mi casa 19",
                             IsAdmin = false,
@@ -233,7 +233,7 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 2000,
+                            Id = 20,
                             Address = "Dirección de mi casa 20",
                             Description = "Descripción de mi casa 20",
                             IsAdmin = false,
@@ -404,6 +404,268 @@ namespace TFG.HomeWorks.Infrastructure.Migrations
                     b.HasIndex("HouseId");
 
                     b.ToTable("Tasks", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario1",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9638),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9688),
+                            Description = "Descripción de la Tarea 1",
+                            HouseId = 1,
+                            Name = "Tarea 1",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario2",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9698),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9700),
+                            Description = "Descripción de la Tarea 2",
+                            HouseId = 2,
+                            Name = "Tarea 2",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario3",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9837),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9842),
+                            Description = "Descripción de la Tarea 3",
+                            HouseId = 3,
+                            Name = "Tarea 3",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario4",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9848),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9850),
+                            Description = "Descripción de la Tarea 4",
+                            HouseId = 4,
+                            Name = "Tarea 4",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario5",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9854),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9856),
+                            Description = "Descripción de la Tarea 5",
+                            HouseId = 5,
+                            Name = "Tarea 5",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario6",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9864),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9866),
+                            Description = "Descripción de la Tarea 6",
+                            HouseId = 6,
+                            Name = "Tarea 6",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario7",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9870),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9872),
+                            Description = "Descripción de la Tarea 7",
+                            HouseId = 7,
+                            Name = "Tarea 7",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario8",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9876),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9878),
+                            Description = "Descripción de la Tarea 8",
+                            HouseId = 8,
+                            Name = "Tarea 8",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario9",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9882),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9883),
+                            Description = "Descripción de la Tarea 9",
+                            HouseId = 9,
+                            Name = "Tarea 9",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario10",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9890),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9892),
+                            Description = "Descripción de la Tarea 10",
+                            HouseId = 10,
+                            Name = "Tarea 10",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario11",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9897),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9899),
+                            Description = "Descripción de la Tarea 11",
+                            HouseId = 11,
+                            Name = "Tarea 11",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario12",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9903),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9905),
+                            Description = "Descripción de la Tarea 12",
+                            HouseId = 12,
+                            Name = "Tarea 12",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario13",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9909),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9911),
+                            Description = "Descripción de la Tarea 13",
+                            HouseId = 13,
+                            Name = "Tarea 13",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario14",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9915),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9917),
+                            Description = "Descripción de la Tarea 14",
+                            HouseId = 14,
+                            Name = "Tarea 14",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario15",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9921),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9923),
+                            Description = "Descripción de la Tarea 15",
+                            HouseId = 15,
+                            Name = "Tarea 15",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario16",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9927),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9929),
+                            Description = "Descripción de la Tarea 16",
+                            HouseId = 16,
+                            Name = "Tarea 16",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario17",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9933),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9935),
+                            Description = "Descripción de la Tarea 17",
+                            HouseId = 17,
+                            Name = "Tarea 17",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario18",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9940),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9942),
+                            Description = "Descripción de la Tarea 18",
+                            HouseId = 18,
+                            Name = "Tarea 18",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario19",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9946),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9948),
+                            Description = "Descripción de la Tarea 19",
+                            HouseId = 19,
+                            Name = "Tarea 19",
+                            State = "NEW"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            AssignedBy = "Ángel",
+                            AssignedTo = "Usuario20",
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 6, 15, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9952),
+                            DeadlineDate = new DateTime(2024, 9, 13, 14, 34, 37, 661, DateTimeKind.Local).AddTicks(9954),
+                            Description = "Descripción de la Tarea 20",
+                            HouseId = 20,
+                            Name = "Tarea 20",
+                            State = "NEW"
+                        });
                 });
 
             modelBuilder.Entity("TFG.HomeWorks.Domain.Entities.UserAggregate.Role", b =>

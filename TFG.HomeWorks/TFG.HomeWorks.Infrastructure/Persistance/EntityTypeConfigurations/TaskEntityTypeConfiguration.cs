@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using TFG.HomeWorks.Domain.Entities.TaskAggregate;
 using TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations.Base;
 
 namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
@@ -47,6 +48,31 @@ namespace TFG.HomeWorks.Infrastructure.Persistance.EntityTypeConfigurations
                 .HasForeignKey(t => t.HouseId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Seed data
+            builder.HasData(GetPreconfiguredHouses());
+        }
+        private List<Domain.Entities.TaskAggregate.Task> GetPreconfiguredHouses()
+        {
+            var random = new Random();
+            var tasks = new List<Domain.Entities.TaskAggregate.Task>();
+            for (int i = 1; i <= 20; i++)
+            {
+                tasks.Add(new Domain.Entities.TaskAggregate.Task()
+                {
+                    Id = i,
+                    Name = $"Tarea {i}",
+                    Description = $"Descripción de la Tarea {i}",
+                    State = TaskState.NEW,
+                    CreationDate = DateTime.Now,
+                    DeadlineDate = DateTime.Now.AddDays(90),
+                    AssignedTo = $"Usuario{i}",
+                    AssignedBy = "Ángel",
+                    CategoryId = random.Next(1, 8),
+                    HouseId = i
+                });
+            }
+            return tasks;
         }
     }
 }
+
