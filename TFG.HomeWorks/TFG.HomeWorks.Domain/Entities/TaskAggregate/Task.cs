@@ -37,7 +37,7 @@ namespace TFG.HomeWorks.Domain.Entities.TaskAggregate
         {
             Name = name;
             Description = description;
-            State = TaskState.New;
+            State = TaskState.NEW;
             CreationDate = DateTime.Now;
             DeadlineDate = deadlineDate;
             AssignedTo = assignedTo;
